@@ -112,9 +112,10 @@ background: linear-gradient(90deg, rgba(4,4,4,0.8688725490196079) 0%, rgba(0,0,0
       </div>
   </div>
   <form action="{{route('logout')}}" method="POST">
-<button type="submit" >DISCONNETTI</button>
+    @csrf
 
-@csrf
+    <button type="submit" >DISCONNETTI</button>
+
 </form>
 </nav>
 
