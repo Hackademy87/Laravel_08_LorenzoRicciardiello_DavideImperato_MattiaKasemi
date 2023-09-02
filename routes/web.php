@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ProductController::class,'welcome'])->name('home');
 
 Route::get('/product/create',[ProductController::class,'create'])->name('product.create');
 
@@ -32,4 +31,4 @@ Route::put('/product/update/{product}',[ProductController::class,'updates'])->na
 
 Route::delete('/product/delete/{product}',[ProductController::class,'destroy'])->name('product.delete');
 
-
+Route::get('/admin',[AdminController::class,'dashboard'])->name('admin.dashboard');

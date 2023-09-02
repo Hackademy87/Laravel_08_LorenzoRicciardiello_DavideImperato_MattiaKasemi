@@ -92,6 +92,11 @@ c-14 -7 -36 -16 -50 -20 -14 -3 -7 3 15 14 45 22 74 27 35 6z m3699 -1623 c62
 background: linear-gradient(90deg, rgba(4,4,4,0.8688725490196079) 0%, rgba(0,0,0,0.6615896358543417) 40%, rgba(0,0,0,0.70640756302521) 100%); -webkit-background-clip: text; color: transparent;">THE GENTLEMAN</h1>
 </a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('home')}}">HOME</a>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link" href="{{route('product.create')}}">CREA PRODOTTI</a>
         </li>
@@ -99,6 +104,9 @@ background: linear-gradient(90deg, rgba(4,4,4,0.8688725490196079) 0%, rgba(0,0,0
           <a class="nav-link" href="{{route('product.index')}}">STORE</a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('admin.dashboard')}}">AMMINISTRATORE</a>
+        </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -111,11 +119,42 @@ background: linear-gradient(90deg, rgba(4,4,4,0.8688725490196079) 0%, rgba(0,0,0
       </ul>
       </div>
   </div>
-  <form action="{{route('logout')}}" method="POST">
+
+
+
+  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        @if(Auth::user() == null)
+          <li class="nav-item">
+            <a class="btn btn-success" href="{{ route('login') }}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-success mx-2" href="{{ route('register') }}">Registrati</a>
+          </li>
+        @else 
+          <li class="nav-item">
+            {{ Auth::user()->name }} ({{ Auth::user()->profile->role }})
+          </li> 
+          <li class="nav-item">
+            <form action="{{ route('logout') }}" method="POST">
+              @csrf
+              <button class="btn btn-secondary mx-2" >Logout</button>
+            </form>
+          </li>
+        @endif
+      </ul>
+
+
+
+
+
+
+
+
+  <!-- <form action="{{route('logout')}}" method="POST">
     @csrf
 
     <button type="submit" >DISCONNETTI</button>
 
-</form>
+</form> -->
 </nav>
 

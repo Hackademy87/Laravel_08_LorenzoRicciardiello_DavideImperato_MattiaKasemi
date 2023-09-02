@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    
+    public function welcome(){
+        return view('welcome');
+    }
 
 // CREA LISTA DEL FORM
 
