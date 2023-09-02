@@ -132,7 +132,7 @@ background: linear-gradient(90deg, rgba(4,4,4,0.8688725490196079) 0%, rgba(0,0,0
           </li>
         @else 
           <li class="nav-item">
-            {{ Auth::user()->name }} ({{ Auth::user()->profile->role }})
+            {{ Auth::user()->name }} ({{ Auth::user()->profile }})
           </li> 
           <li class="nav-item">
             <form action="{{ route('logout') }}" method="POST">
