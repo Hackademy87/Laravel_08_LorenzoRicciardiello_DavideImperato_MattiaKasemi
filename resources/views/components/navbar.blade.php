@@ -96,18 +96,21 @@ background: linear-gradient(90deg, rgba(4,4,4,0.8688725490196079) 0%, rgba(0,0,0
         <li class="nav-item">
           <a class="nav-link" href="{{route('home')}}">HOME</a>
         </li>
-
+@if (Auth::user() !== null)
         <li class="nav-item">
           <a class="nav-link" href="{{route('product.create')}}">CREA PRODOTTI</a>
         </li>
+        @endif
         <li class="nav-item">
           <a class="nav-link" href="{{route('product.index')}}">STORE</a>
         </li>
-
+        @auth
+@if(Auth::user()->profile->role == 'admin')
         <li class="nav-item">
           <a class="nav-link" href="{{route('admin.dashboard')}}">AMMINISTRATORE</a>
         </li>
-
+        @endif
+@endauth
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categorie
@@ -132,7 +135,7 @@ background: linear-gradient(90deg, rgba(4,4,4,0.8688725490196079) 0%, rgba(0,0,0
           </li>
         @else 
           <li class="nav-item">
-            {{ Auth::user()->name }} ({{ Auth::user()->profile }})
+            {{ Auth::user()->name }} ({{ Auth::user()->profile->role }})
           </li> 
           <li class="nav-item">
             <form action="{{ route('logout') }}" method="POST">
@@ -144,17 +147,5 @@ background: linear-gradient(90deg, rgba(4,4,4,0.8688725490196079) 0%, rgba(0,0,0
       </ul>
 
 
-
-
-
-
-
-
-  <!-- <form action="{{route('logout')}}" method="POST">
-    @csrf
-
-    <button type="submit" >DISCONNETTI</button>
-
-</form> -->
 </nav>
 

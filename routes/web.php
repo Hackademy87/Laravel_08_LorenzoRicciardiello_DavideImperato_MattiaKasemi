@@ -32,3 +32,5 @@ Route::put('/product/update/{product}',[ProductController::class,'updates'])->na
 Route::delete('/product/delete/{product}',[ProductController::class,'destroy'])->name('product.delete');
 
 Route::get('/admin',[AdminController::class,'dashboard'])->name('admin.dashboard');
+
+Route::post('/admin/userrole/{user}', [AdminController::class, 'changeUserRole'])->name('admin.changeUserRole');
