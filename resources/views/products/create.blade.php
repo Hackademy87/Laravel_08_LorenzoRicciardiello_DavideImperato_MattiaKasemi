@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-12 col-md-6">
 
-        <x-form></x-form>
+        <x-form :categories="$categories" :materials="$materials"/>
 
         </div>
     </div>

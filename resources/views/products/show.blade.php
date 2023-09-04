@@ -20,10 +20,15 @@
                     <h2>categoria :</h2>
                 </div>
                 <div class="col-6">
-                    <h2>{{$product->category}}</h2>
+                    <h2>{{$product->category->name}}</h2>
                 </div>
             </div>
-
+            <h2>materiali :</h2>
+                </div>
+                <div class="col-6">
+                    <h2>{{$product->getMaterials()}}</h2>
+                </div>
+            </div> 
             <div class="row">
                 <div class="col-6">
                     <h2>prezzo :</h2>

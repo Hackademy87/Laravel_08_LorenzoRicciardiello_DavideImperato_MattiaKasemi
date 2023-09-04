@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\Material;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +18,10 @@ class ProductController extends Controller
 // CREA LISTA DEL FORM
 
 public function create(){
-    return view('products.create');
+    $categories = Category::all();
+    $materials = Material::all();
+    return view('products.create',compact('categories','materials'));
+
 }
 
 
@@ -24,17 +29,24 @@ public function create(){
 // CREA IL PRODOTTO SUL DATABASE
 
 public function store(Request $request){
-    Product::create(
+    $product = Product::create(
         [
             'name'=>$request->input('name'),
-            'category'=>$request->input('category'),
+            'category_id'=>$request->input('category_id'),
             'price'=>$request->input('price'),
             'gender'=>$request->input('gender'),
             'img'=>$request->file('img')->store('public/product'),
-            'user_id'=> Auth::user()->id
+            'user_id'=> Auth::user()->id,
 
         ]
         );
+
+
+$materials = $request->input('materialId');
+
+foreach($materials as $material){
+    $product->materials()->attach($material);
+}
 
 
 

@@ -13,8 +13,27 @@
   </div>
   <div class="mb-3">
     <label  class="form-label">Categoria</label>
-    <input type="text" name="category" class="form-control" >
+    <select class="form-control" name="category_id">
+
+    <option value="null" disabled >seleziona una categoria</option>
+    @foreach($categories as $category)
+    <option value="{{$category->id}}">{{$category->name}}</option>
+    @endforeach
+  </select>
   </div>
+
+
+  <div class="mb-3">
+    <label  class="form-label">materiale</label>
+    <select class="form-control" name="materialId[]" multiple>
+
+    <option value="null" disabled >seleziona i materiali</option>
+    @foreach($materials as $material)
+    <option value="{{$material->id}}">{{$material->name}}</option>
+    @endforeach
+  </select>
+  </div>
+
 
   <div class="mb-3">
     <label  class="form-label">Genere</label>
