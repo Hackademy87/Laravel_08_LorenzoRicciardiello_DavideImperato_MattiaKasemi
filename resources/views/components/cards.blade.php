@@ -10,6 +10,7 @@
     <p>{{$product->category}}</p>
     <p class="card-text">{{$product->price}}€</p>
     <p>{{$product->gender}}</p>
+    <p>inserito da : {{$product->user->profile->nickname}} </p>
   </div>
 </div>
 
