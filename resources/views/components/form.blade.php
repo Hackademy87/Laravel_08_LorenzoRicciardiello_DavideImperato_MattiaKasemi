@@ -37,7 +37,13 @@
 
   <div class="mb-3">
     <label  class="form-label">Genere</label>
-    <input type="text" name="gender" class="form-control" >
+    <select class="form-control" name="category_id">
+
+    <option value="null" disabled >seleziona un genere</option>
+    @foreach($genders as $gender)
+    <option value="{{$gender->id}}">{{$gender->name}}</option>
+    @endforeach
+  </select>
   </div>
 
   <div class="mb-3">

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\Gender;
 use App\Models\Category;
 use App\Models\Material;
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +15,7 @@ class Product extends Model
 
 
 protected $fillable = ['name',
-'price','category','gender','img','user_id','category_id'];
+'price','category','gender','img','user_id','category_id','gender_id'];
 
 
 
@@ -27,6 +28,11 @@ return $this->belongsTo(User::class);
 
 public function category(){
     return $this->belongsTo(Category::class);
+}
+
+
+public function gender(){
+    return $this->belongsTo(Gender::class);
 }
 
 

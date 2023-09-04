@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gender;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Material;
@@ -18,9 +19,10 @@ class ProductController extends Controller
 // CREA LISTA DEL FORM
 
 public function create(){
+    $genders = Gender::all();
     $categories = Category::all();
     $materials = Material::all();
-    return view('products.create',compact('categories','materials'));
+    return view('products.create',compact('categories','materials','genders'));
 
 }
 
@@ -34,7 +36,7 @@ public function store(Request $request){
             'name'=>$request->input('name'),
             'category_id'=>$request->input('category_id'),
             'price'=>$request->input('price'),
-            'gender'=>$request->input('gender'),
+            'gender_id'=>$request->input('gender_id'),
             'img'=>$request->file('img')->store('public/product'),
             'user_id'=> Auth::user()->id,
 

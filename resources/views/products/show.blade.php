@@ -43,7 +43,7 @@
                     <h2>genere :</h2>
                 </div>
                 <div class="col-6">
-                    <h2>{{$product->gender}}</h2>
+                    <h2>{{$product->gender->name}}</h2>
                 </div>
             </div>
 
