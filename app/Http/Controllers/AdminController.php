@@ -25,7 +25,7 @@ $profile->update([
 ]);
 
 
-return redirect()->route('admin.dashboard');
+return redirect()->route('admin.dashboard')->with('message','Ruolo utente cambiato');
 
   }
 }

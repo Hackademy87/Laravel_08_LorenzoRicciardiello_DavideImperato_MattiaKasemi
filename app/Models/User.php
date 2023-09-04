@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Product;
 use App\Models\Profile;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -51,5 +52,13 @@ return $this->hasOne(Profile::class);
 
 
 }
+
+
+public function products(){
+
+    return $this->HasMany(Product::class);
+    
+    }
+
 
 }

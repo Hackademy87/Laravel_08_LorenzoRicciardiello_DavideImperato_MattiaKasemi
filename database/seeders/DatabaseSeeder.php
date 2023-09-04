@@ -20,7 +20,13 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Lorenzo',
             'email' => 'lollo@lollo.com',
-            'password'=> Hash::make('password')
+            'password'=> Hash::make('lollo9511')
+        ]);
+
+        User::factory()->create([
+            'name' => 'Davide',
+            'email' => 'davide@davide.com',
+            'password'=> Hash::make('davide999')
         ]);
         
 Profile::create([
@@ -29,7 +35,11 @@ Profile::create([
     'user_id'=> 1
 ]);
 
-
+Profile::create([
+    'role'=> 'user',
+    'nickname'=> 'nick',
+    'user_id'=> 2
+]);
 
     }
 }

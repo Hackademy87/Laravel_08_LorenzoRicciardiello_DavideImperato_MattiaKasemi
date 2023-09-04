@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
     public function welcome(){
-
+// dd(Auth::user()->products);     //per accedere a tutti i prodotti
         return view('welcome');
     }
 
@@ -30,7 +30,9 @@ public function store(Request $request){
             'category'=>$request->input('category'),
             'price'=>$request->input('price'),
             'gender'=>$request->input('gender'),
-            'img'=>$request->file('img')->store('public/product')
+            'img'=>$request->file('img')->store('public/product'),
+            'user_id'=> Auth::user()->id
+
         ]
         );
 
